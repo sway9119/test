@@ -63,7 +63,7 @@ class Automaton
   end
   
   def read_commands(commands)
-    commands.each do |command|
+    commands.each do |command|  
       case @state
       when :q1
         @state = command == '1' ? :q2 : :q1
@@ -75,5 +75,12 @@ class Automaton
     end
     
     @state == :q2
+  end
+end
+
+
+class Automaton
+  def read_commands(w)
+    !!(/^0*1(1|0.)*$/ =~ w.join)
   end
 end
