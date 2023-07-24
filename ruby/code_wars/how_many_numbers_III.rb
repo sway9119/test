@@ -18,9 +18,14 @@ def make_array(sum_number, digit)
   limit = "1" + str
   n = limit.chop.to_i
   limit = limit.to_i
-  while n < limit    
-    result << n if (n.digits.sum === sum_number && !n.to_s.include?("0"))
-    n += 1
+  while n < limit
+    if n.digits.sum === sum_number && !n.to_s.include?("0")
+      a = n.to_s.split("")
+      if a === a.sort_by{|x| x.to_i }  
+        result << n
+      end
+      n += 1
+    end
   end
   return result
 end
