@@ -4,7 +4,10 @@ def find_all(sum_number, digit)
   max = 0 # n桁の数字の最大値
   
   # 
-  result = make_array(sum_number, digit)
+  array = make_array(sum_number, digit)
+  count = array.count
+  min = array.min
+  max = array.max
   result = [count, min, max]
   return result
 end
@@ -24,8 +27,8 @@ def make_array(sum_number, digit)
       if a === a.sort_by{|x| x.to_i }  
         result << n
       end
-      n += 1
     end
+    n += 1
   end
   return result
 end
