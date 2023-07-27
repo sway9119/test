@@ -1,4 +1,5 @@
 def find_all(sum_number, digit)
+  p "#{sum_number} #{digit}"
   count = 0 # n桁の数字の個数
   min = 0 # n桁の数字の最低値
   max = 0 # n桁の数字の最大値
@@ -8,6 +9,7 @@ def find_all(sum_number, digit)
   count = array.count
   min = array.min
   max = array.max
+  return [] if count == 0
   result = [count, min, max]
   return result
 end
