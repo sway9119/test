@@ -4,9 +4,9 @@ on:
     types: [submitted]
 
 jobs:
-  check-state:
-    if: github.event.review.state == 'approved' && github.event.pull_request.base.ref == 'master'
-    runs-on: ubuntu-latest
+  # check-state:
+  #   if: github.event.review.state == 'approved' && github.event.pull_request.base.ref == 'master'
+  #   runs-on: ubuntu-latest
     
   label:
     runs-on: ubuntu-latest
