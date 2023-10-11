@@ -1,0 +1,20 @@
+name: readry for release
+on:
+  pull_request_review:
+    types: [submitted]
+
+jobs:
+  check-state:
+    if: github.event.review.state == 'approved' && github.event.pull_request.base.ref == 'master'
+    runs-on: ubuntu-latest
+    
+  label:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+    - uses: actions/labeler@v4
+      with:
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"
+        label_type: "ready for release"
