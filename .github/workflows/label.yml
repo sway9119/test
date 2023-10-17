@@ -1,19 +1,16 @@
-name: readry for release
-on:
-  pull_request_review:
-    types: [submitted]
+name: check ready for release
+
+on: pull_request_review
+
 jobs:
-  label_issues:
+  check:
+    name: label when approved
     runs-on: ubuntu-latest
-    permissions:
-      issues: write
+
     steps:
-      - uses: actions/github-script@v6
-        with:
-          script: |
-            github.rest.issues.addLabels({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              labels: ["ready for release"]
-            })
+      - name: Label 'ready for release' when approved pull requests
+        uses: pullreminders/label-when-approved-action@master
+        env:
+          APPROVALS: "1"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ADD_LABEL: "ready for release"
