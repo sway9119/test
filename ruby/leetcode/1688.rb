@@ -9,3 +9,11 @@ def number_of_matches(n)
   end
   result
 end
+
+require 'active_support'
+require 'active_support/core_ext/benchmark'
+result = Benchmark.ms do
+  # 処理
+  number_of_matches(5)
+end
+puts "処理概要 #{result.ceil(5)}s"
