@@ -132,6 +132,6 @@ result = Benchmark.ms do
   target = 1999
   # result = two_sum1(nums, target) # 処理概要 24501.22901ms
   result = two_sum5(nums, target)   # 処理概要 0.31701ms
-  end
+end
 puts "処理概要 #{result.ceil(5)}ms"
 
