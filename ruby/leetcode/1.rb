@@ -124,7 +124,14 @@ def two_sum5(nums, target)
   end
 end
 
-nums = [2, 7, 11, 15]
-target = 9
-result = two_sum5(nums, target)
-p result
+# main
+require 'active_support'
+require 'active_support/core_ext/benchmark'
+result = Benchmark.ms do
+  nums = (1..1000).to_a
+  target = 1999
+  # result = two_sum1(nums, target) # 処理概要 24501.22901ms
+  result = two_sum5(nums, target)   # 処理概要 0.31701ms
+  end
+puts "処理概要 #{result.ceil(5)}ms"
+
