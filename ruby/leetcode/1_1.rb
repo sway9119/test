@@ -43,6 +43,19 @@ end
 
 def order_log_n(nums)
   # TODO: 二分探索処理の実装
+  nums.each_with_index { |n,i| nums[i] = [n,i] }
+  nums.sort_by! { |sub_arr| sub_arr[0] }
+  i = 0
+  j = nums.length - 1
+  while i < j
+      sum = nums[i][0] + nums[j][0]
+      return [nums[i][1],nums[j][1]] if sum == target
+      if sum > target
+          j -= 1
+      else
+          i += 1
+      end
+  end
 end
 
 
