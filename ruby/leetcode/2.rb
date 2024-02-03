@@ -1,3 +1,6 @@
+# 感想
+# ノードの探索には再帰処理が有効
+
 # Definition for singly-linked list.
 class ListNode
     attr_accessor :val, :next
