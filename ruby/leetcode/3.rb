@@ -24,3 +24,20 @@ def length_of_longest_substring(s)
   end
   ret.length
 end
+
+# @param {String} s
+# @return {Integer}
+def length_of_longest_substring(str)
+  max = 0
+  sub_str = []
+  str.each_char do |c|
+    if sub_str.include?(c)
+      i = sub_str.index(c)
+      max = sub_str.length if sub_str.length > max
+      sub_str = sub_str.slice(i+1..)
+    end
+    sub_str << c
+  end
+  max = sub_str.length if sub_str.length > max
+  max
+end
